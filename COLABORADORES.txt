@@ -21,7 +21,7 @@ OPCIÓN B — Si es la primera vez que subes el proyecto:
      git add .
      git commit -m "Primer commit - sitio AHD Distribuidora"
      git branch -M main
-     git remote add origin https://github.com/TU_USUARIO/ahd-distribuidora.git
+     git remote add origin https://github.com/raulrem21/ahd-distribuidora.git
      git push -u origin main
 
 ----------------------------------------------------------------------
