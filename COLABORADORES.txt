@@ -1,0 +1,256 @@
+=====================================================================
+ AHD DISTRIBUIDORA — GUÍA PARA COLABORADORES
+ Proyecto: Sitio web de armazones oftálmicos
+ Tecnologías: HTML5 + CSS3 + JavaScript vanilla
+=====================================================================
+
+----------------------------------------------------------------------
+1. CLONAR EL PROYECTO DESDE GITHUB
+----------------------------------------------------------------------
+
+OPCIÓN A — Si ya tienes el repositorio en GitHub:
+  git clone https://github.com/TU_USUARIO/ahd-distribuidora.git
+
+OPCIÓN B — Si es la primera vez que subes el proyecto:
+  1. Ve a https://github.com y crea un repositorio nuevo
+     Nombre sugerido: ahd-distribuidora
+     Deja las opciones en blanco (sin README automático)
+  
+  2. Desde la carpeta del proyecto en tu computadora, ejecuta:
+     git init
+     git add .
+     git commit -m "Primer commit - sitio AHD Distribuidora"
+     git branch -M main
+     git remote add origin https://github.com/TU_USUARIO/ahd-distribuidora.git
+     git push -u origin main
+
+----------------------------------------------------------------------
+2. ESTRUCTURA DE CARPETAS
+----------------------------------------------------------------------
+
+ahd-distribuidora/
+│
+├── index.html          ← Página principal (inicio)
+├── productos.html      ← Catálogo de 18 armazones
+│
+├── css/
+│   └── styles.css      ← Todos los estilos del sitio
+│
+├── js/
+│   ├── data.js         ← *** DATOS DE PRODUCTOS *** (editar aquí para
+│   │                       agregar/modificar/eliminar productos)
+│   ├── main.js         ← Lógica general (carrusel, header, WhatsApp)
+│   └── productos.js    ← Lógica de catálogo y modal
+│
+├── images/
+│   ├── logo/
+│   │   └── ahd_logo.jpg        ← Logo de la empresa
+│   ├── hero/
+│   │   ├── hero1.jpg           ← Imagen 1 del carrusel de bienvenida
+│   │   ├── hero2.jpg           ← Imagen 2 del carrusel de bienvenida
+│   │   └── hero3.jpg           ← Imagen 3 del carrusel de bienvenida
+│   └── productos/
+│       ├── ahd-001-1.jpg       ← Foto 1 del armazón AHD-001
+│       ├── ahd-001-2.jpg       ← Foto 2 del armazón AHD-001
+│       ├── ahd-002-1.jpg       ← (sigue el mismo patrón para cada modelo)
+│       ├── ...
+│       ├── placeholder_acetato.jpg  ← Imagen por defecto (acetato)
+│       ├── placeholder_metal.jpg    ← Imagen por defecto (metal)
+│       ├── placeholder_tr90.jpg     ← Imagen por defecto (TR-90)
+│       └── placeholder_ninos.jpg    ← Imagen por defecto (infantil)
+│
+└── db/
+    ├── schema.sql      ← Creación de tablas MySQL 8.0
+    └── seed.sql        ← 18 productos de ejemplo
+
+
+----------------------------------------------------------------------
+3. CÓMO AGREGAR O EDITAR UN PRODUCTO
+----------------------------------------------------------------------
+
+PASO 1: Abre el archivo  js/data.js
+
+PASO 2: Busca el array "const productos = [...]"
+
+PASO 3: Agrega un nuevo objeto siguiendo esta estructura:
+  {
+    id: 19,                          ← Número único, no repetir
+    slug: "ahd-019",                 ← URL-friendly, sin espacios
+    modelo: "AHD-019",
+    tipo: "Armazón Oftálmico",
+    material: "Acetato",             ← Acetato | Metal | TR-90 | Titanio
+    color: "Morado",
+    genero: "Mujer",                 ← Hombre | Mujer | Unisex | Niño
+    medidas: "51-17-137",            ← ancho_lente-puente-varilla en mm
+    descripcion: "Descripción...",
+    disponible: true,                ← true o false
+    imagen1: "images/productos/ahd-019-1.jpg",
+    imagen2: "images/productos/ahd-019-2.jpg",
+  },
+
+PASO 4: Sube las fotos a la carpeta  images/productos/
+        Nombra los archivos como: ahd-019-1.jpg  y  ahd-019-2.jpg
+
+PASO 5: Guarda el archivo y prueba en el navegador.
+
+
+----------------------------------------------------------------------
+4. CÓMO SUBIR FOTOS DE PRODUCTOS (GoDaddy)
+----------------------------------------------------------------------
+
+MÉTODO RECOMENDADO — File Manager de GoDaddy:
+  1. Ingresa a tu panel de GoDaddy
+  2. Ve a "Hosting" → tu plan → "File Manager" (Administrador de archivos)
+  3. Navega a la carpeta  public_html/images/productos/
+  4. Haz clic en "Upload" (Subir)
+  5. Selecciona tus fotos (JPG o PNG, máx. recomendado: 300 KB por foto)
+  6. Nomenclatura: ahd-001-1.jpg  y  ahd-001-2.jpg
+
+NOTA: Las imágenes deben ser JPG o PNG.
+      Tamaño recomendado: 800x800 px (cuadradas) o 800x600 px (landscape).
+      Peso máximo recomendado: 300 KB por imagen (para carga rápida).
+
+Después de subir la foto, actualiza js/data.js:
+  imagen1: "images/productos/ahd-001-1.jpg",
+  imagen2: "images/productos/ahd-001-2.jpg",
+
+
+----------------------------------------------------------------------
+5. CÓMO MODIFICAR INFORMACIÓN DE CONTACTO
+----------------------------------------------------------------------
+
+NÚMERO DE WHATSAPP:
+  Edita js/data.js → línea:  whatsappNumber: "524792140944"
+  Formato: código de país (52 para México) + número sin espacios
+
+REDES SOCIALES:
+  Edita js/data.js → variables instagramUrl y facebookUrl
+  También actualiza los links en index.html y productos.html
+
+TEXTOS DEL FOOTER:
+  Edita directamente index.html y productos.html
+  Busca la sección <!-- FOOTER / CONTACTO -->
+
+
+----------------------------------------------------------------------
+6. CÓMO SUBIR EL SITIO A GODADDY
+----------------------------------------------------------------------
+
+OPCIÓN A — File Manager (más fácil, sin instalar nada):
+  1. Ingresa a tu panel de GoDaddy → Hosting → File Manager
+  2. Navega a  public_html/
+  3. Sube TODOS los archivos del proyecto manteniendo la estructura
+     (carpetas css/, js/, images/, db/ + los dos .html)
+  4. Asegúrate de que index.html esté en la raíz de public_html/
+
+OPCIÓN B — FTP (más rápido para muchos archivos):
+  1. Descarga FileZilla (gratuito): https://filezilla-project.org
+  2. En GoDaddy: Hosting → detalles del servidor FTP (host, usuario, contraseña)
+  3. Conéctate con FileZilla y copia todos los archivos a public_html/
+
+OPCIÓN C — Desde GitHub (avanzado):
+  Configura un deploy automático desde GitHub Actions o Cpanel Git.
+
+
+----------------------------------------------------------------------
+7. BASE DE DATOS EN GODADDY
+----------------------------------------------------------------------
+
+VERSIÓN: MySQL 8.0 (administrado con phpMyAdmin)
+
+PASOS PARA CREAR LA BD:
+  1. GoDaddy Panel → Hosting → Bases de datos MySQL
+  2. Crear nueva base de datos: nombre sugerido "ahd_distribuidora"
+  3. Crear usuario y asignar todos los permisos
+  4. Abrir phpMyAdmin desde el panel de GoDaddy
+  5. Seleccionar la base de datos creada
+  6. Ir a la pestaña "SQL"
+  7. Copiar y pegar el contenido de  db/schema.sql  → Ejecutar
+  8. Copiar y pegar el contenido de  db/seed.sql    → Ejecutar
+
+NOTA IMPORTANTE: El sitio actual (HTML/JS/CSS) funciona de forma
+estática, sin necesidad de base de datos en el front-end.
+Los datos de productos están en js/data.js.
+La BD sirve como respaldo y para futuras funcionalidades (PHP, etc.).
+
+
+----------------------------------------------------------------------
+8. FLUJO DE TRABAJO RECOMENDADO PARA COLABORADORES
+----------------------------------------------------------------------
+
+  1. CLONAR el repositorio:
+     git clone URL_DEL_REPO
+
+  2. CREAR TU RAMA antes de editar:
+     git checkout -b nombre-de-tu-rama
+     (ejemplo: git checkout -b agregar-productos-enero)
+
+  3. HACER TUS CAMBIOS en los archivos necesarios
+
+  4. PROBAR localmente abriendo index.html en el navegador
+     (clic doble en el archivo, o usar VS Code Live Server)
+
+  5. CONFIRMAR tus cambios:
+     git add .
+     git commit -m "Descripción de lo que cambiaste"
+
+  6. SUBIR tu rama a GitHub:
+     git push origin nombre-de-tu-rama
+
+  7. CREAR un Pull Request en GitHub para que el responsable
+     del proyecto revise y apruebe los cambios antes de publicar.
+
+
+----------------------------------------------------------------------
+9. CONVENCIONES DE CÓDIGO
+----------------------------------------------------------------------
+
+ARCHIVOS HTML:
+  - Usa comillas dobles para atributos: class="..."
+  - Agrega id descriptivos a elementos interactivos
+  - Comentarios de sección con ══ para mayor legibilidad
+
+CSS:
+  - Usa variables CSS (--color-primary, etc.) en lugar de colores directos
+  - Todos los colores del sitio están definidos en :root en styles.css
+  - Orden: layout → tipografía → colores → efectos
+
+JAVASCRIPT:
+  - Los datos de productos van en js/data.js (no en los HTML)
+  - Usa const para datos que no cambian, let para variables
+  - Agrega comentarios de sección con ─── para organizar el código
+
+IMÁGENES:
+  - Formato: JPG para fotos, PNG para transparencias
+  - Tamaño: máx 300 KB por imagen (optimizar con TinyPNG si es necesario)
+  - Nombre: minúsculas, sin espacios, con guiones (ahd-001-1.jpg)
+
+
+----------------------------------------------------------------------
+10. PALETA DE COLORES OFICIAL (basada en tarjeta de presentación AHD)
+----------------------------------------------------------------------
+
+  Azul marino principal:  #1B2F6E
+  Azul marino oscuro:     #111E4A
+  Azul marino claro:      #2A4494
+  Teal / turquesa:        #2ABFBF  ← Color del slogan en la tarjeta
+  Teal claro:             #3DD9D9
+  Teal oscuro:            #1A9999
+  Blanco:                 #FFFFFF
+  Fondo gris claro:       #F4F6FB
+  Texto principal:        #1A1D2E
+
+Todas estas variables están definidas en  css/styles.css  dentro de :root
+
+
+----------------------------------------------------------------------
+CONTACTO DEL PROYECTO
+----------------------------------------------------------------------
+
+  Empresa:    AHD Distribuidora
+  Web:        ahddistribuidora.com
+  WhatsApp:   479 214 0944
+  Instagram:  @ahd_distribuidora
+  Facebook:   AHD distribuidora
+
+=====================================================================

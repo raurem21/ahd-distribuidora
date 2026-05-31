@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Catálogo de armazones oftálmicos AHD Distribuidora. 18 modelos de acetato, metal, TR-90 y titanio para hombre, mujer, unisex e infantil. Distribución mayorista." />
+  <meta name="keywords" content="armazones oftálmicos, catálogo, óptica, mayoreo, acetato, metal, TR-90, distribuidora" />
+  <meta property="og:title" content="Catálogo de Armazones — AHD Distribuidora" />
+  <meta property="og:description" content="18 modelos de armazones oftálmicos para tu óptica. Distribución directa, precios mayoristas." />
+  <title>Catálogo de Armazones — AHD Distribuidora</title>
+  <link rel="icon" type="image/jpeg" href="images/logo/ahd_logo.jpg" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════════════ -->
+  <site-header></site-header>
+
+  <!-- ══════════════════════════════════════════════════
+       HERO DE PÁGINA DE PRODUCTOS
+  ══════════════════════════════════════════════════ -->
+  <section class="products-page-hero" aria-labelledby="products-page-title">
+    <div class="container" style="position: relative; z-index: 1;">
+      <span class="hero-badge" style="margin-bottom: 1rem;">AHD Distribuidora</span>
+      <h1 id="products-page-title">Catálogo de Armazones</h1>
+      <p>Explora nuestra colección de armazones oftálmicos.<br>Haz clic en cualquier modelo para ver sus detalles.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       CATÁLOGO COMPLETO
+  ══════════════════════════════════════════════════ -->
+  <section class="products-page-content" aria-labelledby="products-page-title">
+    <div class="container">
+
+      <!-- Filtros -->
+      <div class="filter-bar" role="toolbar" aria-label="Filtros de productos">
+        <div class="filter-groups" role="group" aria-label="Filtrar por género o material">
+          <button class="filter-btn active" data-filter="todos" id="filter-todos">Todos</button>
+          <button class="filter-btn" data-filter="hombre" id="filter-hombre">Hombre</button>
+          <button class="filter-btn" data-filter="mujer" id="filter-mujer">Mujer</button>
+          <button class="filter-btn" data-filter="unisex" id="filter-unisex">Unisex</button>
+          <button class="filter-btn" data-filter="ninos" id="filter-ninos">Infantil</button>
+          <button class="filter-btn" data-filter="acetato" id="filter-acetato">Acetato</button>
+          <button class="filter-btn" data-filter="metal" id="filter-metal">Metal / Titanio</button>
+          <button class="filter-btn" data-filter="tr90" id="filter-tr90">TR-90</button>
+        </div>
+        <span class="products-count" id="products-count">18 modelos</span>
+      </div>
+
+      <!-- Grid de productos -->
+      <div class="products-full-grid" id="products-grid" aria-live="polite">
+        <!-- Se renderiza dinámicamente con productos.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       MODAL DE PRODUCTO
+  ══════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
+    <div class="modal-container">
+
+      <!-- Botón cerrar -->
+      <button class="modal-close-btn" id="modal-close" aria-label="Cerrar">✕</button>
+
+      <!-- Lado izquierdo: Carrusel de imágenes -->
+      <div class="modal-carousel">
+        <div class="modal-slides" id="modal-slides">
+          <!-- Slides se inyectan con JS -->
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="modal-thumbnails" id="modal-thumbnails">
+          <!-- Thumbs se inyectan con JS -->
+        </div>
+
+        <!-- Flechas carrusel modal -->
+        <button class="modal-carousel-arrow modal-carousel-prev" aria-label="Imagen anterior">‹</button>
+        <button class="modal-carousel-arrow modal-carousel-next" aria-label="Imagen siguiente">›</button>
+      </div><!-- /modal-carousel -->
+
+      <!-- Lado derecho: Especificaciones -->
+      <div class="modal-sidebar" id="modal-sidebar">
+        <!-- Se inyecta con JS -->
+      </div>
+
+    </div><!-- /modal-container -->
+  </div><!-- /modal-overlay -->
+
+  <!-- ══════════════════════════════════════════════════
+       FOOTER MINI (Contacto)
+  ══════════════════════════════════════════════════ -->
+  <site-footer></site-footer>
+
+  <!-- ══════════════════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+  ══════════════════════════════════════════════════ -->
+  <whatsapp-button></whatsapp-button>
+
+  <!-- ══════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════ -->
+  <script src="js/components.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/productos.js"></script>
+
+</body>
+</html>
