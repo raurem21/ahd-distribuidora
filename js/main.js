@@ -134,20 +134,59 @@ document.addEventListener("DOMContentLoaded", () => {
     revealEls.forEach(el => revealObserver.observe(el));
   }
 
-  // ─── CONTACT FORM ───────────────────────────────────────────
+  // ─── CONTACT FORM (Web3Forms) ───────────────────────────────
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+    contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const btn = contactForm.querySelector(".form-submit");
       const original = btn.textContent;
-      btn.textContent = "✓ ¡Mensaje enviado!";
-      btn.style.background = "linear-gradient(135deg, #1A9999, #16817a)";
+      
+      // Validación básica
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      btn.textContent = "Enviando...";
+      btn.disabled = true;
+      
+      const formData = new FormData(contactForm);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: json
+        });
+        
+        const result = await response.json();
+        
+        if (response.status === 200) {
+          btn.textContent = "✓ ¡Mensaje enviado!";
+          btn.style.background = "linear-gradient(135deg, #1A9999, #16817a)";
+          contactForm.reset();
+        } else {
+          console.error(result);
+          btn.textContent = "❌ Error al enviar";
+          btn.style.background = "#9B4D4D";
+        }
+      } catch (error) {
+        console.error(error);
+        btn.textContent = "❌ Error de conexión";
+        btn.style.background = "#9B4D4D";
+      }
+
       setTimeout(() => {
         btn.textContent = original;
         btn.style.background = "";
-        contactForm.reset();
-      }, 3000);
+        btn.disabled = false;
+      }, 4000);
     });
   }
 
