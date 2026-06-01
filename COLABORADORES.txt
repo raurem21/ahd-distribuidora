@@ -93,11 +93,31 @@ API EXTERNA: El formulario usa Web3Forms (fetch API en main.js).
 ESTRUCTURA DE COMPONENTES: js/components.js inyecta el layout común.
 
 CÓMO COLABORAR EN GITHUB:
-1. Clonar: git clone https://github.com/TU_USUARIO/ahd-distribuidora.git
+1. Clonar: git clone https://github.com/raurem21/ahd-distribuidora.git
 2. Crear rama: git checkout -b actualizacion-diseno
-3. Probar localmente: Usar "Live Server" en VS Code. El proyecto no 
-   necesita Node.js ni XAMPP. Funciona directo en el navegador.
-4. Subir cambios y crear Pull Request.
+3. Una vez que lo clones, abre la carpeta en Visual studio y modifica los códigos necesarios
+CÓMO SUBIR LOS ARCHIVOS A YES DADDY 
+
+
+1. Después dirigete a godaddy 
+>Dar click en tu perfil> Click en "Mis productos"> Busca el botón "Admin de Cpanel">Una vez dentro click en "Administrador de archivos">
+
+Una vez dentro dar click en la carpeta "Public_html", ahí encontraras todos los archivos del proyecto
+Para reemplazar algún archivo o carpeta  y evitarse la tarea de borrar todo el proyecto y subirlo de nuevo a cada rato:
+
+1:Da click en la carpeta dentro de public_html donde esté alojado el archivo o carpeta que quieras reemplazar
+2:Da click en el botón cargar 
+3:Seleccione únicamente los archivos o carpetas que modificaste, te va aparecer un mensae que te va decir que el archivo o carpeta ya existe,
+dale clik en acepar para sobreescribir los archivos viejos por los modificdos
+4:Una vez realizado solo dirigete al sitio web y verifica que esté funcionado la modificación
+
+
+
+
+
+
+
+
 
 BASE DE DATOS Y PHP:
 Actualmente el sitio es 100% estático. Sin embargo, en la carpeta "db/" 
