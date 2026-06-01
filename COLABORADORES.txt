@@ -38,22 +38,33 @@ Una vez que el sitio está en línea, NO necesitas volver a subir todo.
 El sitio funciona como un rompecabezas: si quieres cambiar una pieza, 
 solo quitas y pones esa pequeña pieza.
 
-PASO A: Subir solo la nueva foto
+Opción recomendable:
+1.Descargar/Clonar: La persona baja los archivos desde el repositorio de GitHub a su computadora.
+
+2.Agregar Fotos: Pega las nuevas fotografías en la carpeta images/productos/.
+
+3.Actualizar Código: Abre el archivo js/data.js en su IDE (Visual Studio Code, etc.), 
+agrega la información de los lentes nuevos y escribe los nombres de las fotos que acaba de meter.
+
+4.Respaldo en GitHub: Usa los 3 comandos de Git  para guardar todo en GitHub como respaldo:
+         git add . 
+         git commit -m "Aquí escribe la corrección realizada"
+         git push
+
+5.Subir a GoDaddy: Finalmente, entra al cPanel de GoDaddy 
+y solo sube lo nuevo: es decir, sube las fotos nuevas a la carpeta images/productos/ y 
+sobrescribe el archivo js/data.js. (No tiene que borrar ni subir toda la página completa)
+
+
+
+
+Opción no tan recomendable:
+ Subir solo la nueva foto
 1. Ve al "Administrador de Archivos" en GoDaddy.
 2. Entra a la ruta: public_html/images/productos/
 3. Sube ahí tu nueva foto (Ej: "armazon_rojo.jpg").
 
-PASO B: Agregar el producto al catálogo (sin programar)
-1. En el mismo Administrador de Archivos de GoDaddy, entra a la 
-   carpeta "js" (public_html/js/).
-2. Dale clic derecho al archivo "data.js" y selecciona "Edit" (Editar).
-3. Verás la lista de todos tus lentes. Copia uno existente, pégalo 
-   al final, y solo cámbiale el nombre, color y la foto para que 
-   coincida con la que acabas de subir:
-   Ejemplo:
-      imagen1: "images/productos/armazon_rojo.jpg",
-4. Dale a Guardar (Save changes). ¡Tu página web se actualizará al 
-   instante en todo el mundo!
+
 
 
 ----------------------------------------------------------------------
